@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1198D49-42A5-4B2D-8445-421A97BD43B9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ContractPU</RootNamespace>
+    <AssemblyName>ContractPU</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Dashboard.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.DataAccess.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Images.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Snap.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Snap.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Sparkline.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.SpellChecker.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraCharts.v19.2.Wizard, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraReports.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraRichEdit.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraScheduler.v19.2.Extensions, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraSpellChecker.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraTreeList.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Area.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AreaForms\XtraFormAreaAddUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AreaForms\XtraFormAreaAddUpdate.Designer.cs">
+      <DependentUpon>XtraFormAreaAddUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AreaForms\XtraUserAreass.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AreaForms\XtraUserAreass.Designer.cs">
+      <DependentUpon>XtraUserAreass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contract.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\Data.cs" />
+    <Compile Include="Contracts\XtraFormAddUpdateContracts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contracts\XtraFormAddUpdateContracts.Designer.cs">
+      <DependentUpon>XtraFormAddUpdateContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\XtraReportInvoice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Contracts\XtraReportInvoice.Designer.cs">
+      <DependentUpon>XtraReportInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contracts\XtraUserControlContracts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Contracts\XtraUserControlContracts.Designer.cs">
+      <DependentUpon>XtraUserControlContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContragentForms\XtraFormAddUpdates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContragentForms\XtraFormAddUpdates.Designer.cs">
+      <DependentUpon>XtraFormAddUpdates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContragentForms\XtraUserControlContragent.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContragentForms\XtraUserControlContragent.Designer.cs">
+      <DependentUpon>XtraUserControlContragent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contraget.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cours.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Courses\XtraFormCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Courses\XtraFormCourses.Designer.cs">
+      <DependentUpon>XtraFormCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Courses\XtraUserControlCourses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Courses\XtraUserControlCourses.Designer.cs">
+      <DependentUpon>XtraUserControlCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducatiorForms\XtraFormAddUpdateEducator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EducatiorForms\XtraFormAddUpdateEducator.Designer.cs">
+      <DependentUpon>XtraFormAddUpdateEducator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EducatiorForms\XtraUserControlEducators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EducatiorForms\XtraUserControlEducators.Designer.cs">
+      <DependentUpon>XtraUserControlEducators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Educator.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Faculty.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyForms\XtraFormAddUpdateFaculcy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FacultyForms\XtraFormAddUpdateFaculcy.Designer.cs">
+      <DependentUpon>XtraFormAddUpdateFaculcy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FacultyForms\XtraUserControlFaculcy.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FacultyForms\XtraUserControlFaculcy.Designer.cs">
+      <DependentUpon>XtraUserControlFaculcy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.cs" />
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reference\ClalificationCourses\XtraUserControlClalificationCourses.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reference\ClalificationCourses\XtraUserControlClalificationCourses.Designer.cs">
+      <DependentUpon>XtraUserControlClalificationCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\CoursesByArea\XtraFormCourseInspect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reference\CoursesByArea\XtraFormCourseInspect.Designer.cs">
+      <DependentUpon>XtraFormCourseInspect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\CoursesByArea\XtraUserControlCoursesByArea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reference\CoursesByArea\XtraUserControlCoursesByArea.Designer.cs">
+      <DependentUpon>XtraUserControlCoursesByArea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Educations\XtraReportEducationnnss.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reference\Educations\XtraReportEducationnnss.Designer.cs">
+      <DependentUpon>XtraReportEducationnnss.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\Educations\XtraUserControlEducations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reference\Educations\XtraUserControlEducations.Designer.cs">
+      <DependentUpon>XtraUserControlEducations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\ListOfEducators\XtraUserControlListOfEducators.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reference\ListOfEducators\XtraUserControlListOfEducators.Designer.cs">
+      <DependentUpon>XtraUserControlListOfEducators.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\SumOfContracts\XtraReportSumOfContracts.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reference\SumOfContracts\XtraReportSumOfContracts.Designer.cs">
+      <DependentUpon>XtraReportSumOfContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reference\SumOfContracts\XtraUserControlSumOfContracts.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Reference\SumOfContracts\XtraUserControlSumOfContracts.Designer.cs">
+      <DependentUpon>XtraUserControlSumOfContracts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AreaForms\XtraFormAreaAddUpdate.resx">
+      <DependentUpon>XtraFormAreaAddUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AreaForms\XtraUserAreass.resx">
+      <DependentUpon>XtraUserAreass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\XtraFormAddUpdateContracts.resx">
+      <DependentUpon>XtraFormAddUpdateContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\XtraReportInvoice.resx">
+      <DependentUpon>XtraReportInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contracts\XtraUserControlContracts.resx">
+      <DependentUpon>XtraUserControlContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContragentForms\XtraFormAddUpdates.resx">
+      <DependentUpon>XtraFormAddUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContragentForms\XtraUserControlContragent.resx">
+      <DependentUpon>XtraUserControlContragent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Courses\XtraFormCourses.resx">
+      <DependentUpon>XtraFormCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Courses\XtraUserControlCourses.resx">
+      <DependentUpon>XtraUserControlCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducatiorForms\XtraFormAddUpdateEducator.resx">
+      <DependentUpon>XtraFormAddUpdateEducator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EducatiorForms\XtraUserControlEducators.resx">
+      <DependentUpon>XtraUserControlEducators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForms\XtraFormAddUpdateFaculcy.resx">
+      <DependentUpon>XtraFormAddUpdateFaculcy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FacultyForms\XtraUserControlFaculcy.resx">
+      <DependentUpon>XtraUserControlFaculcy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Reference\ClalificationCourses\XtraUserControlClalificationCourses.resx">
+      <DependentUpon>XtraUserControlClalificationCourses.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\CoursesByArea\XtraFormCourseInspect.resx">
+      <DependentUpon>XtraFormCourseInspect.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\CoursesByArea\XtraUserControlCoursesByArea.resx">
+      <DependentUpon>XtraUserControlCoursesByArea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\Educations\XtraReportEducationnnss.resx">
+      <DependentUpon>XtraReportEducationnnss.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\Educations\XtraUserControlEducations.resx">
+      <DependentUpon>XtraUserControlEducations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\ListOfEducators\XtraUserControlListOfEducators.resx">
+      <DependentUpon>XtraUserControlListOfEducators.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\SumOfContracts\XtraReportSumOfContracts.resx">
+      <DependentUpon>XtraReportSumOfContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reference\SumOfContracts\XtraUserControlSumOfContracts.resx">
+      <DependentUpon>XtraUserControlSumOfContracts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\Area.datasource" />
+    <None Include="Properties\DataSources\Contract.datasource" />
+    <None Include="Properties\DataSources\Contraget.datasource" />
+    <None Include="Properties\DataSources\Cours.datasource" />
+    <None Include="Properties\DataSources\Educator.datasource" />
+    <None Include="Properties\DataSources\Faculty.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\ReadMe.txt" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="DB\PU.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

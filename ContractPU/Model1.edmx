@@ -1,0 +1,558 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PUModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="areaName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contracts">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="contractNumber" Type="int" Nullable="false" />
+          <Property Name="contractDate" Type="date" Nullable="false" />
+          <Property Name="contragentId" Type="int" />
+          <Property Name="courseId" Type="int" />
+          <Property Name="educatorId" Type="int" />
+          <Property Name="startDate" Type="date" Nullable="false" />
+          <Property Name="endDate" Type="date" Nullable="false" />
+          <Property Name="priceWithCredit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="totalWithCredit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="totalWithoutCredit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="priceWithoutCredit" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="sumOfContract" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DDS" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="deductionsForPU" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="deductionsForDKPRPS" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="remunerationFee" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="materialCost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contraget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="address" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="EIK" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="MOL" Type="nvarchar" MaxLength="55" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Courses">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="protocol" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="courseDate" Type="date" Nullable="false" />
+          <Property Name="theme" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="anotation" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="totalHour" Type="float" Nullable="false" />
+          <Property Name="totalCredit" Type="float" Nullable="false" />
+          <Property Name="areaId" Type="int" />
+          <Property Name="educatorId" Type="int" />
+        </EntityType>
+        <EntityType Name="Educator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="educatorName" Type="nvarchar" MaxLength="55" Nullable="false" />
+          <Property Name="areaId" Type="int" />
+          <Property Name="faculcyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="facultyName" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK__Contracts__contr__693CA210">
+          <End Role="Contraget" Type="Self.Contraget" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contraget">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="contragentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__cours__6A30C649">
+          <End Role="Courses" Type="Self.Courses" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Courses">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__educa__6B24EA82">
+          <End Role="Educator" Type="Self.Educator" Multiplicity="0..1" />
+          <End Role="Contracts" Type="Self.Contracts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educator">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contracts">
+              <PropertyRef Name="educatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Courses__areaId__534D60F1">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="areaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Courses__educato__5441852A">
+          <End Role="Educator" Type="Self.Educator" Multiplicity="0..1" />
+          <End Role="Courses" Type="Self.Courses" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educator">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Courses">
+              <PropertyRef Name="educatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Educator__areaId__4F7CD00D">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Educator" Type="Self.Educator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Educator">
+              <PropertyRef Name="areaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Educator__faculc__5070F446">
+          <End Role="Faculty" Type="Self.Faculty" Multiplicity="0..1" />
+          <End Role="Educator" Type="Self.Educator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Educator">
+              <PropertyRef Name="faculcyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="InsertArea" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="areaName" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="PUModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contracts" EntityType="Self.Contracts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contraget" EntityType="Self.Contraget" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Courses" EntityType="Self.Courses" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Educator" EntityType="Self.Educator" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Faculty" EntityType="Self.Faculty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Contracts__contr__693CA210" Association="Self.FK__Contracts__contr__693CA210">
+            <End Role="Contraget" EntitySet="Contraget" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__cours__6A30C649" Association="Self.FK__Contracts__cours__6A30C649">
+            <End Role="Courses" EntitySet="Courses" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__educa__6B24EA82" Association="Self.FK__Contracts__educa__6B24EA82">
+            <End Role="Educator" EntitySet="Educator" />
+            <End Role="Contracts" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Courses__areaId__534D60F1" Association="Self.FK__Courses__areaId__534D60F1">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Courses__educato__5441852A" Association="Self.FK__Courses__educato__5441852A">
+            <End Role="Educator" EntitySet="Educator" />
+            <End Role="Courses" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Educator__areaId__4F7CD00D" Association="Self.FK__Educator__areaId__4F7CD00D">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Educator" EntitySet="Educator" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Educator__faculc__5070F446" Association="Self.FK__Educator__faculc__5070F446">
+            <End Role="Faculty" EntitySet="Faculty" />
+            <End Role="Educator" EntitySet="Educator" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PUModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PUEntitiesOne" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="InsertArea">
+          <Parameter Name="areaName" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteArea">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Areas" EntityType="PUModel.Area" />
+          <EntitySet Name="Contracts" EntityType="PUModel.Contract" />
+          <EntitySet Name="Contragets" EntityType="PUModel.Contraget" />
+          <EntitySet Name="Courses" EntityType="PUModel.Cours" />
+          <EntitySet Name="Educators" EntityType="PUModel.Educator" />
+          <EntitySet Name="Faculties" EntityType="PUModel.Faculty" />
+          <AssociationSet Name="FK__Courses__areaId__534D60F1" Association="PUModel.FK__Courses__areaId__534D60F1">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Cours" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Educator__areaId__4F7CD00D" Association="PUModel.FK__Educator__areaId__4F7CD00D">
+            <End Role="Area" EntitySet="Areas" />
+            <End Role="Educator" EntitySet="Educators" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__contr__693CA210" Association="PUModel.FK__Contracts__contr__693CA210">
+            <End Role="Contraget" EntitySet="Contragets" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__cours__6A30C649" Association="PUModel.FK__Contracts__cours__6A30C649">
+            <End Role="Cours" EntitySet="Courses" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contracts__educa__6B24EA82" Association="PUModel.FK__Contracts__educa__6B24EA82">
+            <End Role="Educator" EntitySet="Educators" />
+            <End Role="Contract" EntitySet="Contracts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Courses__educato__5441852A" Association="PUModel.FK__Courses__educato__5441852A">
+            <End Role="Educator" EntitySet="Educators" />
+            <End Role="Cours" EntitySet="Courses" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Educator__faculc__5070F446" Association="PUModel.FK__Educator__faculc__5070F446">
+            <End Role="Faculty" EntitySet="Faculties" />
+            <End Role="Educator" EntitySet="Educators" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="PUModel.sysdiagram" />
+        </EntityContainer>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="areaName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Courses" Relationship="PUModel.FK__Courses__areaId__534D60F1" FromRole="Area" ToRole="Cours" />
+          <NavigationProperty Name="Educators" Relationship="PUModel.FK__Educator__areaId__4F7CD00D" FromRole="Area" ToRole="Educator" />
+        </EntityType>
+        <EntityType Name="Contract">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="contractDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="contragentId" Type="Int32" />
+          <Property Name="courseId" Type="Int32" />
+          <Property Name="educatorId" Type="Int32" />
+          <Property Name="startDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="endDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="priceWithCredit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="totalWithCredit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="totalWithoutCredit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="priceWithoutCredit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="sumOfContract" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="DDS" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="deductionsForPU" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="deductionsForDKPRPS" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="remunerationFee" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <Property Name="materialCost" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="Contraget" Relationship="PUModel.FK__Contracts__contr__693CA210" FromRole="Contract" ToRole="Contraget" />
+          <NavigationProperty Name="Cours" Relationship="PUModel.FK__Contracts__cours__6A30C649" FromRole="Contract" ToRole="Cours" />
+          <NavigationProperty Name="Educator" Relationship="PUModel.FK__Contracts__educa__6B24EA82" FromRole="Contract" ToRole="Educator" />
+          <Property Name="contractNumber" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contraget">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="EIK" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="MOL" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Contracts" Relationship="PUModel.FK__Contracts__contr__693CA210" FromRole="Contraget" ToRole="Contract" />
+        </EntityType>
+        <EntityType Name="Cours">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="protocol" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="courseDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="theme" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="anotation" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="totalHour" Type="Double" Nullable="false" />
+          <Property Name="totalCredit" Type="Double" Nullable="false" />
+          <Property Name="areaId" Type="Int32" />
+          <Property Name="educatorId" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="PUModel.FK__Courses__areaId__534D60F1" FromRole="Cours" ToRole="Area" />
+          <NavigationProperty Name="Contracts" Relationship="PUModel.FK__Contracts__cours__6A30C649" FromRole="Cours" ToRole="Contract" />
+          <NavigationProperty Name="Educator" Relationship="PUModel.FK__Courses__educato__5441852A" FromRole="Cours" ToRole="Educator" />
+        </EntityType>
+        <EntityType Name="Educator">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="educatorName" Type="String" Nullable="false" MaxLength="55" FixedLength="false" Unicode="true" />
+          <Property Name="areaId" Type="Int32" />
+          <Property Name="faculcyId" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="PUModel.FK__Educator__areaId__4F7CD00D" FromRole="Educator" ToRole="Area" />
+          <NavigationProperty Name="Contracts" Relationship="PUModel.FK__Contracts__educa__6B24EA82" FromRole="Educator" ToRole="Contract" />
+          <NavigationProperty Name="Courses" Relationship="PUModel.FK__Courses__educato__5441852A" FromRole="Educator" ToRole="Cours" />
+          <NavigationProperty Name="Faculty" Relationship="PUModel.FK__Educator__faculc__5070F446" FromRole="Educator" ToRole="Faculty" />
+        </EntityType>
+        <EntityType Name="Faculty">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="facultyName" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Educators" Relationship="PUModel.FK__Educator__faculc__5070F446" FromRole="Faculty" ToRole="Educator" />
+        </EntityType>
+        <Association Name="FK__Courses__areaId__534D60F1">
+          <End Type="PUModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="PUModel.Cours" Role="Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cours">
+              <PropertyRef Name="areaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Educator__areaId__4F7CD00D">
+          <End Type="PUModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="PUModel.Educator" Role="Educator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Educator">
+              <PropertyRef Name="areaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__contr__693CA210">
+          <End Type="PUModel.Contraget" Role="Contraget" Multiplicity="0..1" />
+          <End Type="PUModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contraget">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="contragentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__cours__6A30C649">
+          <End Type="PUModel.Cours" Role="Cours" Multiplicity="0..1" />
+          <End Type="PUModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cours">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="courseId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contracts__educa__6B24EA82">
+          <End Type="PUModel.Educator" Role="Educator" Multiplicity="0..1" />
+          <End Type="PUModel.Contract" Role="Contract" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educator">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Contract">
+              <PropertyRef Name="educatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Courses__educato__5441852A">
+          <End Type="PUModel.Educator" Role="Educator" Multiplicity="0..1" />
+          <End Type="PUModel.Cours" Role="Cours" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Educator">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cours">
+              <PropertyRef Name="educatorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Educator__faculc__5070F446">
+          <End Type="PUModel.Faculty" Role="Faculty" Multiplicity="0..1" />
+          <End Type="PUModel.Educator" Role="Educator" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Faculty">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Educator">
+              <PropertyRef Name="faculcyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PUModelStoreContainer" CdmEntityContainer="PUEntitiesOne">
+          <FunctionImportMapping FunctionImportName="InsertArea" FunctionName="PUModel.Store.InsertArea" />
+          <FunctionImportMapping FunctionImportName="DeleteArea" FunctionName="PUModel.Store.DeleteArea" />
+          <EntitySetMapping Name="Areas">
+            <EntityTypeMapping TypeName="PUModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="areaName" ColumnName="areaName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contracts">
+            <EntityTypeMapping TypeName="PUModel.Contract">
+              <MappingFragment StoreEntitySet="Contracts">
+                <ScalarProperty Name="contractNumber" ColumnName="contractNumber" />
+                <ScalarProperty Name="materialCost" ColumnName="materialCost" />
+                <ScalarProperty Name="remunerationFee" ColumnName="remunerationFee" />
+                <ScalarProperty Name="deductionsForDKPRPS" ColumnName="deductionsForDKPRPS" />
+                <ScalarProperty Name="deductionsForPU" ColumnName="deductionsForPU" />
+                <ScalarProperty Name="DDS" ColumnName="DDS" />
+                <ScalarProperty Name="sumOfContract" ColumnName="sumOfContract" />
+                <ScalarProperty Name="priceWithoutCredit" ColumnName="priceWithoutCredit" />
+                <ScalarProperty Name="totalWithoutCredit" ColumnName="totalWithoutCredit" />
+                <ScalarProperty Name="totalWithCredit" ColumnName="totalWithCredit" />
+                <ScalarProperty Name="priceWithCredit" ColumnName="priceWithCredit" />
+                <ScalarProperty Name="endDate" ColumnName="endDate" />
+                <ScalarProperty Name="startDate" ColumnName="startDate" />
+                <ScalarProperty Name="educatorId" ColumnName="educatorId" />
+                <ScalarProperty Name="courseId" ColumnName="courseId" />
+                <ScalarProperty Name="contragentId" ColumnName="contragentId" />
+                <ScalarProperty Name="contractDate" ColumnName="contractDate" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contragets">
+            <EntityTypeMapping TypeName="PUModel.Contraget">
+              <MappingFragment StoreEntitySet="Contraget">
+                <ScalarProperty Name="MOL" ColumnName="MOL" />
+                <ScalarProperty Name="EIK" ColumnName="EIK" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Courses">
+            <EntityTypeMapping TypeName="PUModel.Cours">
+              <MappingFragment StoreEntitySet="Courses">
+                <ScalarProperty Name="educatorId" ColumnName="educatorId" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="totalCredit" ColumnName="totalCredit" />
+                <ScalarProperty Name="totalHour" ColumnName="totalHour" />
+                <ScalarProperty Name="anotation" ColumnName="anotation" />
+                <ScalarProperty Name="theme" ColumnName="theme" />
+                <ScalarProperty Name="courseDate" ColumnName="courseDate" />
+                <ScalarProperty Name="protocol" ColumnName="protocol" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educators">
+            <EntityTypeMapping TypeName="PUModel.Educator">
+              <MappingFragment StoreEntitySet="Educator">
+                <ScalarProperty Name="faculcyId" ColumnName="faculcyId" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="educatorName" ColumnName="educatorName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Faculties">
+            <EntityTypeMapping TypeName="PUModel.Faculty">
+              <MappingFragment StoreEntitySet="Faculty">
+                <ScalarProperty Name="facultyName" ColumnName="facultyName" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PUModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

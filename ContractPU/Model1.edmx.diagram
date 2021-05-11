@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2d0d92711b04b22956c7759a258bbe7" Name="Diagram1">
+        <EntityTypeShape EntityType="PUModel.Area" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="PUModel.Contract" Width="1.5" PointX="7.5" PointY="3.375" />
+        <EntityTypeShape EntityType="PUModel.Contraget" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="PUModel.Cours" Width="1.5" PointX="5.25" PointY="4.125" />
+        <EntityTypeShape EntityType="PUModel.Educator" Width="1.5" PointX="3" PointY="4.5" />
+        <EntityTypeShape EntityType="PUModel.Faculty" Width="1.5" PointX="0.75" PointY="2" />
+        <AssociationConnector Association="PUModel.FK__Courses__areaId__534D60F1" />
+        <AssociationConnector Association="PUModel.FK__Educator__areaId__4F7CD00D" />
+        <AssociationConnector Association="PUModel.FK__Contracts__contr__693CA210" />
+        <AssociationConnector Association="PUModel.FK__Contracts__cours__6A30C649" />
+        <AssociationConnector Association="PUModel.FK__Contracts__educa__6B24EA82" />
+        <AssociationConnector Association="PUModel.FK__Courses__educato__5441852A" />
+        <AssociationConnector Association="PUModel.FK__Educator__faculc__5070F446" />
+        <EntityTypeShape EntityType="PUModel.sysdiagram" Width="1.5" PointX="0.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
